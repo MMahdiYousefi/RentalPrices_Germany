@@ -12,9 +12,9 @@ st.markdown("Explore apartment rental prices across German cities 📊")
 st.write("#")
 
 
-@st.cache
+@st.cache_data
 def load_data():
-    df = pd.read_csv("data/immo_data_cleaned.csv")
+    df = pd.read_csv("Rental_Dashboard/data/immo_data_cleaned.csv")
     df["date"] = pd.to_datetime(df["date"], errors='coerce')
     return df.dropna(subset=["totalRent", "city"])
 
